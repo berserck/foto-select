@@ -8,22 +8,18 @@ using System.Threading.Tasks;
 
 namespace foto_select
 {
-    interface IMyIterator : IEnumerator
-    {
-        bool MovePrevious();
-    }
-
-    class ReversibleIterator<T> : IMyIterator
+    public class ReversibleIterator<T> 
     {
         public T[] _items;
 
         int position = -1;
 
+
         public ReversibleIterator(T[] list)
         {
             _items = list;
         }
-        public object Current
+        public T Current
         {
             get
             {
@@ -37,6 +33,8 @@ namespace foto_select
                 }
             }
         }
+
+        public int Position { get => position; }
 
         public bool MoveNext()
         {
@@ -59,24 +57,5 @@ namespace foto_select
             position = -1;
         }
     }
-
-    public class MyCollection<T> : IEnumerable
-    {
-        private T[] _items;
-        public MyCollection(T[] pArray)
-        {
-            _items = new T[pArray.Length];
-            for (int i = 0; i < pArray.Length; i++)
-            {
-                _items[i] = pArray[i];
-            }
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            return new ReversibleIterator<T>(_items);
-        }
-    }
-
 
 }

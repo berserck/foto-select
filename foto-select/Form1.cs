@@ -19,7 +19,8 @@ namespace foto_select
         string destinationFolder2;
 
         List<string> lstFiles;
-        List<string>.Enumerator fileEnumerator;
+        int nfiles;
+        ReversibleIterator<string> fileEnumerator;
 
         public Form1()
         {
@@ -36,7 +37,12 @@ namespace foto_select
             switch (e.KeyData)
             {
                 case Keys.Space:
+                case Keys.Right:
                     LoadNextImage();
+                    break;
+                case Keys.Back:
+                case Keys.Left:
+                    LoadPreviousImage();
                     break;
                 case Keys.D1:
                     result = CopyImage(destinationFolder1);
@@ -62,7 +68,7 @@ namespace foto_select
                     originFolder = fbd.SelectedPath;
                     statusLabelOriginFolder.Text = "O:" + originFolder;
 
-                    var nfiles = FindFiles(originFolder, fileTypes);
+                    nfiles = FindFiles(originFolder, fileTypes);
                     statusLabelFileCounter.Text = $"1/{nfiles}";
 
                     LoadNextImage();
@@ -77,6 +83,23 @@ namespace foto_select
                 pictureBox1.ImageLocation = fileEnumerator.Current;
                 statusLabelCurFile.Text = fileEnumerator.Current;
                 ResetLabelColor();
+                statusLabelFileCounter.Text = $"{fileEnumerator.Position + 1}/{nfiles}";
+            }
+            else
+            {
+                MessageBox.Show("No more images");
+            }
+        }
+
+        private void LoadPreviousImage()
+        {
+            if (fileEnumerator.MovePrevious())
+            {
+                pictureBox1.ImageLocation = fileEnumerator.Current;
+                statusLabelCurFile.Text = fileEnumerator.Current;
+
+                ResetLabelColor();
+                statusLabelFileCounter.Text = $"{fileEnumerator.Position + 1}/{nfiles}";
             }
             else
             {
@@ -143,7 +166,7 @@ namespace foto_select
             lstFiles = dirInfo.EnumerateFiles("*.*", SearchOption.AllDirectories).
                 Where(s => !String.IsNullOrEmpty(Path.GetExtension(s.Name)) && fileTypes.Contains(Path.GetExtension(s.Name).ToLower())).Select(i => i.FullName).ToList();
 
-            fileEnumerator = lstFiles.GetEnumerator();
+            fileEnumerator = new ReversibleIterator<string>(lstFiles.ToArray());//lstFiles.GetEnumerator();
             return lstFiles.Count;
         }
 
