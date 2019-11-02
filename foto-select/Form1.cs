@@ -164,7 +164,7 @@ namespace foto_select
             var dirInfo = new DirectoryInfo(path: folder);
 
             lstFiles = dirInfo.EnumerateFiles("*.*", SearchOption.AllDirectories).
-                Where(s => !String.IsNullOrEmpty(Path.GetExtension(s.Name)) && fileTypes.Contains(Path.GetExtension(s.Name).ToLower())).Select(i => i.FullName).ToList();
+                Where(s => !String.IsNullOrEmpty(Path.GetExtension(s.Name)) && fileTypes.Contains(Path.GetExtension(s.Name).ToLower())).Select(i => i.FullName).OrderBy(i=>i).ToList();
 
             fileEnumerator = new ReversibleIterator<string>(lstFiles.ToArray());//lstFiles.GetEnumerator();
             return lstFiles.Count;
