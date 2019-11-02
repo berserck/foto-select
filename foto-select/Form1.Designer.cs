@@ -34,12 +34,12 @@
             this.statusLabelDestFolder1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelDestFolder2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelCurFile = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLabelSpacer = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLabelFileCounter = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.originToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.destination1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.destination2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusLabelSpacer = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusLabelFileCounter = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -70,39 +70,50 @@
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // statusLabelOriginFolder
             // 
             this.statusLabelOriginFolder.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.statusLabelOriginFolder.Name = "toolStripStatusLabel1";
+            this.statusLabelOriginFolder.Name = "statusLabelOriginFolder";
             this.statusLabelOriginFolder.Size = new System.Drawing.Size(73, 19);
             this.statusLabelOriginFolder.Text = "O:<empty>";
             // 
-            // toolStripStatusLabel2
+            // statusLabelDestFolder1
             // 
             this.statusLabelDestFolder1.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.statusLabelDestFolder1.Name = "toolStripStatusLabel2";
+            this.statusLabelDestFolder1.Name = "statusLabelDestFolder1";
             this.statusLabelDestFolder1.Size = new System.Drawing.Size(78, 19);
             this.statusLabelDestFolder1.Text = "D1:<empty>";
             // 
-            // toolStripStatusLabel3
+            // statusLabelDestFolder2
             // 
             this.statusLabelDestFolder2.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.statusLabelDestFolder2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusLabelDestFolder2.Name = "toolStripStatusLabel3";
+            this.statusLabelDestFolder2.Name = "statusLabelDestFolder2";
             this.statusLabelDestFolder2.Size = new System.Drawing.Size(78, 19);
             this.statusLabelDestFolder2.Text = "D2:<empty>";
             // 
-            // toolStripStatusLabel4
+            // statusLabelCurFile
             // 
             this.statusLabelCurFile.BackColor = System.Drawing.SystemColors.Control;
-            this.statusLabelCurFile.Name = "toolStripStatusLabel4";
+            this.statusLabelCurFile.Name = "statusLabelCurFile";
             this.statusLabelCurFile.Size = new System.Drawing.Size(0, 19);
+            // 
+            // statusLabelSpacer
+            // 
+            this.statusLabelSpacer.Name = "statusLabelSpacer";
+            this.statusLabelSpacer.Size = new System.Drawing.Size(556, 19);
+            this.statusLabelSpacer.Spring = true;
+            // 
+            // statusLabelFileCounter
+            // 
+            this.statusLabelFileCounter.Name = "statusLabelFileCounter";
+            this.statusLabelFileCounter.Size = new System.Drawing.Size(0, 19);
             // 
             // menuStrip1
             // 
@@ -137,17 +148,6 @@
             this.destination2ToolStripMenuItem.Text = "Destination2";
             this.destination2ToolStripMenuItem.Click += new System.EventHandler(this.selectDest2ToolStripMenuItem_Click);
             // 
-            // toolStripStatusLabel5
-            // 
-            this.statusLabelSpacer.Name = "toolStripStatusLabel5";
-            this.statusLabelSpacer.Size = new System.Drawing.Size(407, 19);
-            this.statusLabelSpacer.Spring = true;
-            // 
-            // toolStripStatusLabel6
-            // 
-            this.statusLabelFileCounter.Name = "toolStripStatusLabel6";
-            this.statusLabelFileCounter.Size = new System.Drawing.Size(0, 19);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,7 +159,7 @@
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Foto Select";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
