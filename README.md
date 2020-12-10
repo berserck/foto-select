@@ -18,4 +18,4 @@ This app requires you to select 3 folders before you can start:
 
 ## Screenshot
 
-[screenshot](./FotoSelect_screenshot.png)
+![screenshot](./FotoSelect_screenshot.png)
